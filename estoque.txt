@@ -1,0 +1,5 @@
+Coca Cola;bebida;40;99/99/99;77/77/77;
+Veja;Limpeza;150;44/44/44;55/55/55;
+Pepsi Cola;Bebida;140;13/04/18;16/08/19;
+Limpol;Limpeza;78;19/01/17;15/07/22;
+Banana;Perecivel;230;07/11/19;07/12/12;

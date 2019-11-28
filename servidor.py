@@ -43,6 +43,34 @@ def pesquisarProd(prod):
         conexao.send('0'.encode())
 
 
+def alterarProd(prod):
+    try:
+        # lista irá acumular os dados a serem retornados
+        lista = ''
+
+        arq = open('estoque.txt', 'r')
+        linhas = arq.readlines()
+        arq.close()
+
+        for linha in linhas:
+            partes = linha.split(';')
+
+            if partes[0] == prod:
+                lista += partes[0] + ';' + partes[1] + ';' + partes[2] + ';' + partes[3] + ';' + partes[4] + '#'
+
+        if lista == '':
+            conexao.send('0'.encode())
+        else:
+            conexao.send(lista[:-1].encode())
+
+    except:
+        conexao.send('0'.encode())
+
+
+
+
+
+
 def listar():
     try:
         # lista irá acumular os dados a serem retornados
@@ -157,6 +185,8 @@ while True:
         listar(partes[1])
     elif partes[0] == '4':
         excluiProd(partes[1])
+    elif partes[0] == '5':
+        alterarProd(partes[1])
 
 # fecha a conexão
 conexao.close()
